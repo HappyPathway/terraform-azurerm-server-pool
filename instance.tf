@@ -1,15 +1,16 @@
 resource "azurerm_virtual_machine" "avm" {
   name                  = "${var.service_name}-${var.env}-avm${format("%03d", count.index + 1)}"
   location              = "${var.location}"
-  resource_group_name  = "${var.resource_group}"
+  resource_group_name   = "${var.resource_group}"
   network_interface_ids = ["${element(azurerm_network_interface.ani.*.id, count.index)}"]
-  vm_size               = "Standard_DS1_v2"
+  vm_size               = "${var.instance_size}"
   count                 = "${var.count}"
+
   depends_on = [
-                "azurerm_public_ip.api",
-                "azurerm_network_interface.ani",
-                "azurerm_managed_disk.amd"
-                ]
+    "azurerm_public_ip.api",
+    "azurerm_network_interface.ani",
+    "azurerm_managed_disk.amd",
+  ]
 
   # Uncomment this line to delete the OS disk automatically when deleting the VM
   delete_os_disk_on_termination = true
@@ -59,8 +60,7 @@ resource "azurerm_virtual_machine" "avm" {
   }
 
   tags {
-    service = "${var.service_name}"
+    service     = "${var.service_name}"
     environment = "${var.env}"
   }
 }
-
