@@ -2,8 +2,6 @@ variable "location" {
   default = "West US 2"
 }
 
-variable "version" {}
-
 variable "service_name" {
   default = "app"
 }
