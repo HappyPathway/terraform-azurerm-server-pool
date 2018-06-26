@@ -36,17 +36,6 @@ variable "system_password" {
   default = "admin"
 }
 
-variable "datadog_api_key" {}
-variable "datadog_app_key" {}
-
-variable "ddog_install_script" {
-  default = "https://raw.githubusercontent.com/DataDog/datadog-agent/master/cmd/agent/install_script.sh"
-}
-
-variable "datadog_monitor" {
-  default = true
-}
-
 variable "resource_group" {}
 variable "subnet_name" {}
 variable "network_name" {}
