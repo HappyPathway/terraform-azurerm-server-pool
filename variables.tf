@@ -35,8 +35,7 @@ variable "system_password" {
 }
 
 variable "resource_group" {}
-variable "subnet_name" {}
-variable "network_name" {}
+variable "subnet" {}
 
 variable "instance_size" {
   default = "Standard_DS1_v2"
