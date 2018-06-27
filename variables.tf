@@ -6,12 +6,8 @@ variable "service_name" {
   default = "app"
 }
 
-variable "service_port" {
-  default = "80"
-}
-
-variable "register_service" {
-  default = true
+variable "service_version" {
+  default = "1.0.0"
 }
 
 variable "env" {
@@ -39,4 +35,8 @@ variable "subnet" {}
 
 variable "instance_size" {
   default = "Standard_DS1_v2"
+}
+
+variable "network_name" {
+  type = "string"
 }

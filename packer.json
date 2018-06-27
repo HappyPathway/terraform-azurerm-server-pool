@@ -4,9 +4,9 @@
         "client_secret": "{{env `ARM_CLIENT_SECRET`}}",
         "subscription_id": "{{env `ARM_SUBSCRIPTION_ID`}}",
         "tenant_id": "{{env `ARM_TENANT_ID`}}",
-        "resource_group": "production",
         "service_name": "",
         "service_version": "",
+        "location": "westus",
         "chef_validation_key": "{{env `CHEF_VALIDATION_KEY` }}",
         "chef_client_name": "{{env `CHEF_VALIDATION_CLIENT_NAME` }}",
         "chef_server_url": "{{env `CHEF_SERVER_URL`}}",
@@ -16,23 +16,24 @@
     "builders": [
         {
             "type": "azure-arm",
+            "subscription_id": "{{user `subscription_id`}}",
             "client_id": "{{user `client_id`}}",
-            "client_secret": "{{user `client_secret`}}$",
-            "resource_group_name": "{{ user `resource_group`}}",
-            "storage_account": "virtualmachines",
-            "subscription_id": "44cae533-4247-4093-42cf-897ded6e7823",
-            "tenant_id": "de39842a-caba-497e-a798-7896aea43218",
-            "capture_container_name": "images",
-            "capture_name_prefix": "packer",
+            "client_secret": "{{user `client_secret`}}",
+            "tenant_id": "{{user `tenant_id`}}",
+            "location": "{{user `location`}}",
+
             "os_type": "Linux",
             "image_publisher": "Canonical",
             "image_offer": "UbuntuServer",
             "image_sku": "14.04.4-LTS",
+
+            "managed_image_resource_group_name": "PackerConfigs",
+            "managed_image_name": "{{user `service_name`}}-{{user `service_version`}}",
+
             "azure_tags": {
                 "service": "{{user `service_name` }}",
                 "version": "{{user `service_version` }}"
             },
-            "location": "West US",
             "vm_size": "Standard_A2"
         }
     ],
