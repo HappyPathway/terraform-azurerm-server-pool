@@ -1,5 +1,3 @@
-provider "azurerm" {}
-
 resource "azurerm_virtual_machine" "avm" {
   name                  = "${var.service_name}-avm${format("%03d", count.index + 1)}"
   location              = "${var.location}"
