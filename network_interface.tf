@@ -1,11 +1,11 @@
 data "azurerm_subnet" "test" {
   name                 = "${var.subnet}"
-  virtual_network_name = "${var.env}"
-  resource_group_name  = "${var.env}"
+  virtual_network_name = "${var.service_name}-network"
+  resource_group_name  = "${var.service_name}"
 }
 
 resource "azurerm_network_interface" "ani" {
-  name                = "${var.service_name}-${var.env}-ani${format("%03d", count.index + 1)}"
+  name                = "${var.service_name}-ani${format("%03d", count.index + 1)}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
   count               = "${var.count}"

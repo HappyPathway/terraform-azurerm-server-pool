@@ -1,5 +1,5 @@
 resource "azurerm_managed_disk" "amd" {
-  name                 = "${var.service_name}-${var.env}-amd${format("%03d", count.index + 1)}"
+  name                 = "${var.service_name}-amd${format("%03d", count.index + 1)}"
   location             = "${var.location}"
   resource_group_name  = "${var.resource_group}"
   storage_account_type = "Standard_LRS"
