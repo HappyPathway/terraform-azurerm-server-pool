@@ -1,4 +1,4 @@
 # AzureServerPool
-Creates a Pool of Identical Servers in Azure
+Creates a Single Server in Azure
 
 adding more content so I can push

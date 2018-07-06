@@ -14,10 +14,6 @@ variable "env" {
   default = "staging"
 }
 
-variable "count" {
-  default = 1
-}
-
 variable "disk_size" {
   default = 1024
 }

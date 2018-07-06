@@ -4,7 +4,6 @@ resource "azurerm_public_ip" "api" {
   resource_group_name          = "${var.resource_group}"
   public_ip_address_allocation = "Dynamic"
   idle_timeout_in_minutes      = 30
-  count                        = "${var.count}"
 
   tags {
     environment = "${var.env}"

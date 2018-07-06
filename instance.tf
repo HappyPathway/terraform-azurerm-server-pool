@@ -9,7 +9,6 @@ resource "azurerm_virtual_machine" "avm" {
   resource_group_name   = "${var.resource_group}"
   network_interface_ids = ["${element(azurerm_network_interface.ani.*.id, count.index)}"]
   vm_size               = "${var.instance_size}"
-  count                 = "${var.count}"
 
   depends_on = [
     "azurerm_public_ip.api",

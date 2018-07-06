@@ -8,7 +8,6 @@ resource "azurerm_network_interface" "ani" {
   name                = "${var.service_name}-ani${format("%03d", count.index + 1)}"
   location            = "${var.location}"
   resource_group_name = "${var.resource_group}"
-  count               = "${var.count}"
 
   ip_configuration {
     name                          = "${var.service_name}-ani${format("%03d", count.index + 1)}"

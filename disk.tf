@@ -5,5 +5,4 @@ resource "azurerm_managed_disk" "amd" {
   storage_account_type = "Standard_LRS"
   create_option        = "Empty"
   disk_size_gb         = "${var.disk_size}"
-  count                = "${var.count}"
 }
