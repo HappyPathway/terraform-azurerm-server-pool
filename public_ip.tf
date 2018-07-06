@@ -1,5 +1,5 @@
 resource "azurerm_public_ip" "api" {
-  name                         = "${var.service_name}-ip${format("%03d", count.index + 1)}"
+  name                         = "${var.service_name}"
   location                     = "${var.location}"
   resource_group_name          = "${var.resource_group}"
   public_ip_address_allocation = "Dynamic"
