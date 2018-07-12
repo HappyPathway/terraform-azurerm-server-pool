@@ -57,6 +57,7 @@ resource "azurerm_virtual_machine" "avm" {
     computer_name  = "${var.service_name}-${format("%03d", count.index + 1)}"
     admin_username = "${var.system_user}"
     admin_password = "${var.system_password}"
+    custom_data    = "${var.user_data}"
   }
   os_profile_linux_config {
     disable_password_authentication = false

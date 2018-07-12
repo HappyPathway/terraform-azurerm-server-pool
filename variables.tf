@@ -36,3 +36,8 @@ variable "instance_size" {
 variable "network_name" {
   type = "string"
 }
+
+variable "user_data" {
+  type        = "string"
+  description = "Instance User Data"
+}
