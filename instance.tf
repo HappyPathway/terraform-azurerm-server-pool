@@ -1,5 +1,5 @@
 locals {
-    image_location = "${join("_", split(" ", data.terraform_remote_state.network.location))}"
+    image_location = "${join("_", split(" ", var.location))}"
 }
 
 data "azurerm_image" "image" {
