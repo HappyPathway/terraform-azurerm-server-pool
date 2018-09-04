@@ -10,9 +10,6 @@ data "azurerm_image" "image" {
 resource "random_string" "name_extension" {
   length  = 8
   special = false
-  keepers = {
-    instance_id = "${azurerm_virtual_machine.avm.id}"
-  }
 }
 
 resource "azurerm_virtual_machine" "avm" {
