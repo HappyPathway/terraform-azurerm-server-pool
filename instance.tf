@@ -7,8 +7,16 @@ data "azurerm_image" "image" {
   resource_group_name = "PackerConfigs"
 }
 
+resource "random_string" "name_extension" {
+  length  = 8
+  special = false
+  keepers = {
+    instance_id = "${azurerm_virtual_machine.avm.id}"
+  }
+}
+
 resource "azurerm_virtual_machine" "avm" {
-  name                  = "${var.service_name}-avm${format("%03d", count.index + 1)}"
+  name                  = "${var.service_name}-avm${format("%03d", count.index + 1)}-${random_string.name_extension.result}"
   location              = "${var.location}"
   resource_group_name   = "${var.resource_group}"
   network_interface_ids = ["${element(azurerm_network_interface.ani.*.id, count.index)}"]
