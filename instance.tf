@@ -3,7 +3,7 @@ locals {
 }
 
 data "azurerm_image" "image" {
-  name                = "${var.service_name}-${var.service_version}-${local.image_location}"
+  name                = "${var.service_name}-${var.service_version}"
   resource_group_name = "PackerConfigs"
 }
 
